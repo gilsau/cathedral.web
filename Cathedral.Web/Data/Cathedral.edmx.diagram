@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e114638cfcc24ec680dcd10ad7dfbae3" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="CathedralModel.AppRole" Width="1.5" PointX="1.5" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="CathedralModel.AppUser" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CathedralModel.Builder" Width="1.5" PointX="0.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CathedralModel.Community" Width="1.5" PointX="0.75" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="CathedralModel.History" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CathedralModel.HistoryByColumn" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CathedralModel.Plan" Width="1.5" PointX="0.75" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CathedralModel.Property" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CathedralModel.PropertyXKickOff" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CathedralModel.PropertyXPreWalk" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CathedralModel.PropertyXWalkThrough" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CathedralModel.PunchMan" Width="1.5" PointX="0.75" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="CathedralModel.State" Width="1.5" PointX="1.5" PointY="30.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CathedralModel.Status" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CathedralModel.SubContractor" Width="1.5" PointX="0.75" PointY="40.875" IsExpanded="true" />
+        <AssociationConnector Association="CathedralModel.fk_AppUser_AppRole" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_Property_AreaManager" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_Property_RoughInSupervisor" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_Property_Supervisor" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_Property_TopInSupervisor" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_Property_TopOutSupervisor" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_Property_Builder" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_Community_State" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_Property_Community" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_Property_Plan" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_Property_PunchMan1" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_Property_PunchMan2" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_Property_RoughInStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_Property_State" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_Property_SubContractor" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_Property_TopInStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_Property_TopOutStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_PropertyXKickOff_Property" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_PropertyXPreWalk_Property" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_PropertyXWalkThrough_Property" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_PropertyXKickOff_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_PropertyXPreWalk_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="CathedralModel.fk_PropertyXWalkThrough_Status" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

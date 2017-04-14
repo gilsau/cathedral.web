@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CathedralModelStoreContainer" CdmEntityContainer="CathedralEntities">
+    <EntitySetMapping Name="AppRoles">
+      <EntityTypeMapping TypeName="CathedralModel.AppRole">
+        <MappingFragment StoreEntitySet="AppRole">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppUsers">
+      <EntityTypeMapping TypeName="CathedralModel.AppUser">
+        <MappingFragment StoreEntitySet="AppUser">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Builders">
+      <EntityTypeMapping TypeName="CathedralModel.Builder">
+        <MappingFragment StoreEntitySet="Builder">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Communities">
+      <EntityTypeMapping TypeName="CathedralModel.Community">
+        <MappingFragment StoreEntitySet="Community">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Histories">
+      <EntityTypeMapping TypeName="CathedralModel.History">
+        <MappingFragment StoreEntitySet="History">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="DateOfAction" ColumnName="DateOfAction" />
+          <ScalarProperty Name="ActionBy" ColumnName="ActionBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistoryByColumns">
+      <EntityTypeMapping TypeName="CathedralModel.HistoryByColumn">
+        <MappingFragment StoreEntitySet="HistoryByColumn">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="ColumnName" ColumnName="ColumnName" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="DateOfAction" ColumnName="DateOfAction" />
+          <ScalarProperty Name="ActionBy" ColumnName="ActionBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Plans">
+      <EntityTypeMapping TypeName="CathedralModel.Plan">
+        <MappingFragment StoreEntitySet="Plan">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="File" ColumnName="File" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Properties">
+      <EntityTypeMapping TypeName="CathedralModel.Property">
+        <MappingFragment StoreEntitySet="Property">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="Stories" ColumnName="Stories" />
+          <ScalarProperty Name="CommunityId" ColumnName="CommunityId" />
+          <ScalarProperty Name="BuilderId" ColumnName="BuilderId" />
+          <ScalarProperty Name="SupervisorId" ColumnName="SupervisorId" />
+          <ScalarProperty Name="AreaManagerId" ColumnName="AreaManagerId" />
+          <ScalarProperty Name="SubContractorId" ColumnName="SubContractorId" />
+          <ScalarProperty Name="PunchMan1Id" ColumnName="PunchMan1Id" />
+          <ScalarProperty Name="PunchMan2Id" ColumnName="PunchMan2Id" />
+          <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+          <ScalarProperty Name="RoughInStatus" ColumnName="RoughInStatus" />
+          <ScalarProperty Name="RoughInDueDate" ColumnName="RoughInDueDate" />
+          <ScalarProperty Name="RoughInStarted" ColumnName="RoughInStarted" />
+          <ScalarProperty Name="RoughInSupervisorId" ColumnName="RoughInSupervisorId" />
+          <ScalarProperty Name="TopInStatus" ColumnName="TopInStatus" />
+          <ScalarProperty Name="TopInDueDate" ColumnName="TopInDueDate" />
+          <ScalarProperty Name="TopInStarted" ColumnName="TopInStarted" />
+          <ScalarProperty Name="TopInSupervisorId" ColumnName="TopInSupervisorId" />
+          <ScalarProperty Name="TopOutStatus" ColumnName="TopOutStatus" />
+          <ScalarProperty Name="TopOutDueDate" ColumnName="TopOutDueDate" />
+          <ScalarProperty Name="TopOutStarted" ColumnName="TopOutStarted" />
+          <ScalarProperty Name="TopOutSupervisorId" ColumnName="TopOutSupervisorId" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyXKickOffs">
+      <EntityTypeMapping TypeName="CathedralModel.PropertyXKickOff">
+        <MappingFragment StoreEntitySet="PropertyXKickOff">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="ExtensionRequested" ColumnName="ExtensionRequested" />
+          <ScalarProperty Name="ExtensionApproved" ColumnName="ExtensionApproved" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyXPreWalks">
+      <EntityTypeMapping TypeName="CathedralModel.PropertyXPreWalk">
+        <MappingFragment StoreEntitySet="PropertyXPreWalk">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="ExtensionRequested" ColumnName="ExtensionRequested" />
+          <ScalarProperty Name="ExtensionApproved" ColumnName="ExtensionApproved" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyXWalkThroughs">
+      <EntityTypeMapping TypeName="CathedralModel.PropertyXWalkThrough">
+        <MappingFragment StoreEntitySet="PropertyXWalkThrough">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="ExtensionRequested" ColumnName="ExtensionRequested" />
+          <ScalarProperty Name="ExtensionApproved" ColumnName="ExtensionApproved" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PunchMen">
+      <EntityTypeMapping TypeName="CathedralModel.PunchMan">
+        <MappingFragment StoreEntitySet="PunchMan">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="CathedralModel.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Abbrev" ColumnName="Abbrev" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="CathedralModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubContractors">
+      <EntityTypeMapping TypeName="CathedralModel.SubContractor">
+        <MappingFragment StoreEntitySet="SubContractor">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,146 @@
+﻿@using Cathedral.Web.Models;
+@{
+    ViewBag.Title = "Dashboard";
+    List<PreWalk> propsPre = (List<PreWalk>)ViewBag.PropertiesPre;
+    int propsPrePending = propsPre.Where(pre => pre.Status.Value == AppStatus.InProgress).Count();
+
+    List<KickOff> propsKick = (List<KickOff>)ViewBag.PropertiesKick;
+    int propsKickPending = propsKick.Where(kick => kick.Status.Value == AppStatus.InProgress).Count();
+
+    List<WalkThrough> propsWalk = (List<WalkThrough>)ViewBag.PropertiesWalk;
+    int propsWalkPending = propsWalk.Where(walk => walk.Status.Value == AppStatus.InProgress).Count();
+}
+
+@section Scripts{
+    <script src="~/Scripts/dashboard.js"></script>
+}
+
+@if (ViewBag.ErrMsg != null)
+{
+    <div class="alert alert-danger"><h3>Error</h3>@ViewBag.ErrMsg</div>
+}
+
+<table style="width:100%;">
+    <tr>
+        <td style="width:99%;vertical-align:top;">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div id="preWalksBox" class="col-sm-4 squareContainer" style="padding:0px;">
+                        <div class="squareOverlay"></div>
+                        <table class="square" style="width:100%">
+                            <tr>
+                                <td class="vTop" style="font-size:18px;">Pre-Walks</td>
+                            </tr>
+                            <tr>
+                                <td class="text3 text-center" style="font-size:60px;">@propsPre.Count()</td>
+                            </tr>
+                            <tr>
+                                <td class="vBottom">
+                                    <div><b>@propsPrePending</b> of <b>@propsPre.Count()</b> complete</div>
+                                    <div class="progress"><div class="progress-bar" role="progressbar" style="width:70%"></div></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="kickOffsBox" class="col-sm-4 squareContainer" style="padding:0px;">
+                        <div class="squareOverlay"></div>
+                        <table class="square" style="width:100%">
+                            <tr>
+                                <td class="vTop" style="font-size:18px;">Kick-Offs</td>
+                            </tr>
+                            <tr>
+                                <td class="text3 text-center" style="font-size:60px;">@propsKick.Count()</td>
+                            </tr>
+                            <tr>
+                                <td class="vBottom">
+                                    <div><b>@propsKickPending</b> of <b>@propsKick.Count()</b> complete</div>
+                                    <div class="progress"><div class="progress-bar" role="progressbar" style="width:70%"></div></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="walkThroughsBox" class="col-sm-4 squareContainer" style="padding:0px;">
+                        <div class="squareOverlay"></div>
+                        <table class="square" style="width:100%">
+                            <tr>
+                                <td class="vTop" style="font-size:18px;">Walk-Throughs</td>
+                            </tr>
+                            <tr>
+                                <td class="text3 text-center" style="font-size:60px;">@propsWalk.Count()</td>
+                            </tr>
+                            <tr>
+                                <td class="vBottom">
+                                    <div><b>@propsWalkPending</b> of <b>@propsWalk.Count()</b> complete</div>
+                                    <div class="progress"><div class="progress-bar" role="progressbar" style="width:70%"></div></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <p>&nbsp;</p>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tabComm">Community</a></li>
+                    <li><a data-toggle="tab" href="#tabStage">Stage</a></li>
+                    <li><a data-toggle="tab" href="#tabBuild">Builder</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="tabComm" class="tab-pane fade in active">
+                        @{ if (propsPre != null)
+                            {
+                                // Group the pets using Age as the key value
+                                // and selecting only the pet's Name for each value.
+                                IEnumerable<IGrouping<string, PreWalk>> comms = propsPre.GroupBy(p => p.Property.Community.Name, p => p);
+
+                                // Iterate over each IGrouping in the collection.
+                                foreach (IGrouping<string, PreWalk> comm in comms)
+                                {
+                                    <div class="commListItem text4">
+                                        <span class="pull-right">
+                                            <span class="smallDimCircle">@comm.Count()</span>
+                                            <span class="glyphicon glyphicon-plus-sign btn btn-lg" data-toggle="collapse" data-target=".addy-for-@comm.Key.Replace(" ", "-")"></span>
+                                        </span>
+                                        
+                                        <div class="smallDim">Community</div>
+                                        @string.Format("{0} - Dallas, Tx", comm.Key)
+
+                                        @foreach (PreWalk walk in comm)
+                                        {
+                                            string stage = (walk.Property.RoughIn.DueDate > walk.Property.TopIn.DueDate || walk.Property.TopIn.DueDate == null) && (walk.Property.RoughIn.DueDate > walk.Property.TopOut.DueDate || walk.Property.TopOut.DueDate == null) ? "Rough In" :
+                                                                                ((walk.Property.TopIn.DueDate > walk.Property.RoughIn.DueDate || walk.Property.RoughIn.DueDate == null) && (walk.Property.TopIn.DueDate > walk.Property.TopOut.DueDate || walk.Property.TopOut.DueDate == null) ? "Top In" :
+                                                                                    ((walk.Property.TopOut.DueDate > walk.Property.RoughIn.DueDate || walk.Property.RoughIn.DueDate == null) && (walk.Property.TopOut.DueDate > walk.Property.TopIn.DueDate || walk.Property.TopIn.DueDate == walk.Property.TopIn.DueDate) ? "Top Out" :
+                                                                                        string.Empty
+                                                                                    )
+                                                                                );
+
+                                            <div class="addyListItem collapse addy-for-@comm.Key.Replace(" ", "-")" style="text-indent:15px;border-top:solid 1px #b7b7b7;">
+                                                <span class="pull-right btn btn-sm btn-default text-center marg5 preWalkComplete" data-id="@walk.Id">Complete</span>
+                                                <a target="_blank" href="~/Images/blueprints.gif" class="marg5 pull-right btn btn-sm btn-default text-center">View Plan</a>
+                                                @walk.Property.Address1 | @stage Pre-Walk
+                                                <div class="smallDim">Builder: @walk.Property.Builder.Name | Stage: @stage | 3.1 mi.</div>
+                                            </div>
+                                        }
+                                    </div>
+                                }
+                            }
+                        }
+                    </div>
+                    <div id="tabStage" class="tab-pane fade">
+                        <h3>Properties By Stage</h3>
+
+                    </div>
+                    <div id="tabBuild" class="tab-pane fade">
+                        <h3>Properties By Builder</h3>
+
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td style="width:1%;vertical-align:top;">
+            <div id="rightBox">
+                <div class="text2" style="font-size:20px;margin:2px;">Recent Activity</div>
+
+            </div>
+        </td>
+    </tr>
+</table>

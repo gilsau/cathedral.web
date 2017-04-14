@@ -1,0 +1,51 @@
+﻿@using Cathedral.Web.Models
+@{
+    SessionUser sUser = (SessionUser)Session["User"];
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Cathedral Office</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    @Html.Partial("Header", sUser)
+    <div class="container-fluid body-content">
+        <table style="width:100%;">
+            <tr>
+                <td rowspan="3" class="leftMenu text1">@Html.Partial("LeftMenu")</td>
+                <td class="header2 text1 nopad">@Html.Partial("Header2", sUser)</td>
+            </tr>
+            <tr>
+                <td class="pad-left15 text4" style="font-size:20px;font-weight:700;">
+                    @ViewBag.Title
+                    <span id="rightBoxToggleLink" class="pull-right btn btn-sm" style="margin:0px;">
+                        <span class="glyphicon glyphicon-arrow-left icon-interactive"></span>
+                        <span class="glyphicon glyphicon-th-list icon-interactive"></span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="mainBody greyBack1">@RenderBody()</td>
+            </tr>
+        </table>
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Cathedral Office</p>
+        </footer>
+    </div>
+
+    <input type="hidden" id="hdnLatitude" />
+    <input type="hidden" id="hdnLongitude" />
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/global.js"></script>
+    @RenderSection("Scripts", false)
+</body>
+</html>

@@ -1,0 +1,599 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CathedralModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AppRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Updated" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="100" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Updated" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Builder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContactPerson" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Updated" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Community">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="StateId" Type="int" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Updated" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="History">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Action" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="DateOfAction" Type="datetime" Nullable="false" />
+    <Property Name="ActionBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HistoryByColumn">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TableName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ColumnName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Action" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="DateOfAction" Type="datetime" Nullable="false" />
+    <Property Name="ActionBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Plan">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="File" Type="nvarchar" MaxLength="100" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Updated" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Property">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="StateId" Type="int" Nullable="false" />
+    <Property Name="Stories" Type="int" Nullable="false" />
+    <Property Name="CommunityId" Type="int" Nullable="false" />
+    <Property Name="BuilderId" Type="int" />
+    <Property Name="SupervisorId" Type="int" />
+    <Property Name="AreaManagerId" Type="int" />
+    <Property Name="SubContractorId" Type="int" />
+    <Property Name="PunchMan1Id" Type="int" />
+    <Property Name="PunchMan2Id" Type="int" />
+    <Property Name="PlanId" Type="int" />
+    <Property Name="RoughInStatus" Type="int" />
+    <Property Name="RoughInDueDate" Type="datetime" />
+    <Property Name="RoughInStarted" Type="datetime" />
+    <Property Name="RoughInSupervisorId" Type="int" />
+    <Property Name="TopInStatus" Type="int" />
+    <Property Name="TopInDueDate" Type="datetime" />
+    <Property Name="TopInStarted" Type="datetime" />
+    <Property Name="TopInSupervisorId" Type="int" />
+    <Property Name="TopOutStatus" Type="int" />
+    <Property Name="TopOutDueDate" Type="datetime" />
+    <Property Name="TopOutStarted" Type="datetime" />
+    <Property Name="TopOutSupervisorId" Type="int" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Updated" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PropertyXKickOff">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PropertyId" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="ExtensionRequested" Type="bit" />
+    <Property Name="ExtensionApproved" Type="bit" />
+    <Property Name="DueDate" Type="datetime" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Updated" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PropertyXPreWalk">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PropertyId" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="ExtensionRequested" Type="bit" />
+    <Property Name="ExtensionApproved" Type="bit" />
+    <Property Name="DueDate" Type="datetime" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Updated" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PropertyXWalkThrough">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PropertyId" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="ExtensionRequested" Type="bit" />
+    <Property Name="ExtensionApproved" Type="bit" />
+    <Property Name="DueDate" Type="datetime" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Updated" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PunchMan">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Updated" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Abbrev" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubContractor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContactPerson" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Updated" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_AppUser_AppRole">
+    <End Role="AppRole" Type="Self.AppRole" Multiplicity="1" />
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AppUser">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Community_State">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="Community" Type="Self.Community" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Community">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Property_AreaManager">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="0..1" />
+    <End Role="Property" Type="Self.Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="AreaManagerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Property_Builder">
+    <End Role="Builder" Type="Self.Builder" Multiplicity="0..1" />
+    <End Role="Property" Type="Self.Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Builder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="BuilderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Property_Community">
+    <End Role="Community" Type="Self.Community" Multiplicity="1" />
+    <End Role="Property" Type="Self.Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Community">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="CommunityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Property_Plan">
+    <End Role="Plan" Type="Self.Plan" Multiplicity="0..1" />
+    <End Role="Property" Type="Self.Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plan">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="PlanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Property_PunchMan1">
+    <End Role="PunchMan" Type="Self.PunchMan" Multiplicity="0..1" />
+    <End Role="Property" Type="Self.Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PunchMan">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="PunchMan1Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Property_PunchMan2">
+    <End Role="PunchMan" Type="Self.PunchMan" Multiplicity="0..1" />
+    <End Role="Property" Type="Self.Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PunchMan">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="PunchMan2Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Property_RoughInStatus">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Property" Type="Self.Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="RoughInStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Property_RoughInSupervisor">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="0..1" />
+    <End Role="Property" Type="Self.Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="RoughInSupervisorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Property_State">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="Property" Type="Self.Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Property_SubContractor">
+    <End Role="SubContractor" Type="Self.SubContractor" Multiplicity="0..1" />
+    <End Role="Property" Type="Self.Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubContractor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="SubContractorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Property_Supervisor">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="0..1" />
+    <End Role="Property" Type="Self.Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="SupervisorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Property_TopInStatus">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Property" Type="Self.Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="TopInStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Property_TopInSupervisor">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="0..1" />
+    <End Role="Property" Type="Self.Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="TopInSupervisorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Property_TopOutStatus">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Property" Type="Self.Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="TopOutStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Property_TopOutSupervisor">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="0..1" />
+    <End Role="Property" Type="Self.Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="TopOutSupervisorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_PropertyXKickOff_Property">
+    <End Role="Property" Type="Self.Property" Multiplicity="1" />
+    <End Role="PropertyXKickOff" Type="Self.PropertyXKickOff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PropertyXKickOff">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_PropertyXKickOff_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="PropertyXKickOff" Type="Self.PropertyXKickOff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PropertyXKickOff">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_PropertyXPreWalk_Property">
+    <End Role="Property" Type="Self.Property" Multiplicity="1" />
+    <End Role="PropertyXPreWalk" Type="Self.PropertyXPreWalk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PropertyXPreWalk">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_PropertyXPreWalk_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="PropertyXPreWalk" Type="Self.PropertyXPreWalk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PropertyXPreWalk">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_PropertyXWalkThrough_Property">
+    <End Role="Property" Type="Self.Property" Multiplicity="1" />
+    <End Role="PropertyXWalkThrough" Type="Self.PropertyXWalkThrough" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PropertyXWalkThrough">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_PropertyXWalkThrough_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="PropertyXWalkThrough" Type="Self.PropertyXWalkThrough" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PropertyXWalkThrough">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CathedralModelStoreContainer">
+    <EntitySet Name="AppRole" EntityType="Self.AppRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppUser" EntityType="Self.AppUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Builder" EntityType="Self.Builder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Community" EntityType="Self.Community" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="History" EntityType="Self.History" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistoryByColumn" EntityType="Self.HistoryByColumn" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Plan" EntityType="Self.Plan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Property" EntityType="Self.Property" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PropertyXKickOff" EntityType="Self.PropertyXKickOff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PropertyXPreWalk" EntityType="Self.PropertyXPreWalk" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PropertyXWalkThrough" EntityType="Self.PropertyXWalkThrough" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PunchMan" EntityType="Self.PunchMan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubContractor" EntityType="Self.SubContractor" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_AppUser_AppRole" Association="Self.fk_AppUser_AppRole">
+      <End Role="AppRole" EntitySet="AppRole" />
+      <End Role="AppUser" EntitySet="AppUser" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Community_State" Association="Self.fk_Community_State">
+      <End Role="State" EntitySet="State" />
+      <End Role="Community" EntitySet="Community" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Property_AreaManager" Association="Self.fk_Property_AreaManager">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="Property" EntitySet="Property" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Property_Builder" Association="Self.fk_Property_Builder">
+      <End Role="Builder" EntitySet="Builder" />
+      <End Role="Property" EntitySet="Property" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Property_Community" Association="Self.fk_Property_Community">
+      <End Role="Community" EntitySet="Community" />
+      <End Role="Property" EntitySet="Property" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Property_Plan" Association="Self.fk_Property_Plan">
+      <End Role="Plan" EntitySet="Plan" />
+      <End Role="Property" EntitySet="Property" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Property_PunchMan1" Association="Self.fk_Property_PunchMan1">
+      <End Role="PunchMan" EntitySet="PunchMan" />
+      <End Role="Property" EntitySet="Property" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Property_PunchMan2" Association="Self.fk_Property_PunchMan2">
+      <End Role="PunchMan" EntitySet="PunchMan" />
+      <End Role="Property" EntitySet="Property" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Property_RoughInStatus" Association="Self.fk_Property_RoughInStatus">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Property" EntitySet="Property" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Property_RoughInSupervisor" Association="Self.fk_Property_RoughInSupervisor">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="Property" EntitySet="Property" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Property_State" Association="Self.fk_Property_State">
+      <End Role="State" EntitySet="State" />
+      <End Role="Property" EntitySet="Property" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Property_SubContractor" Association="Self.fk_Property_SubContractor">
+      <End Role="SubContractor" EntitySet="SubContractor" />
+      <End Role="Property" EntitySet="Property" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Property_Supervisor" Association="Self.fk_Property_Supervisor">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="Property" EntitySet="Property" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Property_TopInStatus" Association="Self.fk_Property_TopInStatus">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Property" EntitySet="Property" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Property_TopInSupervisor" Association="Self.fk_Property_TopInSupervisor">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="Property" EntitySet="Property" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Property_TopOutStatus" Association="Self.fk_Property_TopOutStatus">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Property" EntitySet="Property" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Property_TopOutSupervisor" Association="Self.fk_Property_TopOutSupervisor">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="Property" EntitySet="Property" />
+    </AssociationSet>
+    <AssociationSet Name="fk_PropertyXKickOff_Property" Association="Self.fk_PropertyXKickOff_Property">
+      <End Role="Property" EntitySet="Property" />
+      <End Role="PropertyXKickOff" EntitySet="PropertyXKickOff" />
+    </AssociationSet>
+    <AssociationSet Name="fk_PropertyXKickOff_Status" Association="Self.fk_PropertyXKickOff_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="PropertyXKickOff" EntitySet="PropertyXKickOff" />
+    </AssociationSet>
+    <AssociationSet Name="fk_PropertyXPreWalk_Property" Association="Self.fk_PropertyXPreWalk_Property">
+      <End Role="Property" EntitySet="Property" />
+      <End Role="PropertyXPreWalk" EntitySet="PropertyXPreWalk" />
+    </AssociationSet>
+    <AssociationSet Name="fk_PropertyXPreWalk_Status" Association="Self.fk_PropertyXPreWalk_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="PropertyXPreWalk" EntitySet="PropertyXPreWalk" />
+    </AssociationSet>
+    <AssociationSet Name="fk_PropertyXWalkThrough_Property" Association="Self.fk_PropertyXWalkThrough_Property">
+      <End Role="Property" EntitySet="Property" />
+      <End Role="PropertyXWalkThrough" EntitySet="PropertyXWalkThrough" />
+    </AssociationSet>
+    <AssociationSet Name="fk_PropertyXWalkThrough_Status" Association="Self.fk_PropertyXWalkThrough_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="PropertyXWalkThrough" EntitySet="PropertyXWalkThrough" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

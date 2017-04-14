@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Collections;
+using System.Web;
+
+using Cathedral.Web.Data;
+using Cathedral.Web.Models;
+
+namespace Cathedral.Web.Repository
+{
+    public static class NotificationRepository
+    {
+        private static CathedralEntities _db = new CathedralEntities();
+
+        public static void GetNotifications(out Result result) {
+            result = new Result();
+        }
+    }
+}

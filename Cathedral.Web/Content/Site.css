@@ -1,0 +1,175 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+td.leftMenu {
+    padding-left: 10px;
+    width: 1%;
+    height: 100vh;
+    background-color: #2A303F;
+    vertical-align: top;
+}
+
+td.header2 {
+    padding: 0px;
+    width: 99%;
+    height: 50px;
+    vertical-align: bottom;
+    background-color: #AB71C3;
+}
+
+td.mainBody {
+    padding: 10px;
+    vertical-align: top;
+}
+
+div.squareContainer {
+    border: solid 1px #eee;
+    padding: 10px;
+    background-color: #fff;
+}
+
+#rightBox {
+    height:100vh;
+    display: none;
+    width: 200px;
+    background-color: #fff;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.text1 {
+    color: #fff;
+}
+
+.text2 {
+    color: #6e6e6e;
+}
+
+.text3 {
+    color: #2FD184;
+}
+
+.text4 {
+    color: #676767;
+}
+
+.progress-bar {
+    background-color: #6e6e6e !important;
+}
+
+.vTop {
+    vertical-align: top;
+}
+
+.vBottom {
+    vertical-align: bottom;
+}
+
+.squareOverlay {
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    opacity: .7;
+}
+
+.nopad {
+    padding: 0px;
+}
+
+.nomargin {
+    margin: 0px;
+}
+
+table.square tr td {
+    padding: 10px;
+}
+
+table.header2Table tr td {
+    padding: 0px;
+}
+
+.pad-left15 {
+    padding-left: 15px;
+}
+
+.head2 {
+    font-size: 36px;
+    font-weight: 100;
+}
+
+.roleText {
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.navbar-default {
+    background-color: #fff;
+    border-color: #E7E7E7;
+}
+
+.lightPink {
+    background-color: #BB87D0;
+}
+
+.floatAutoWidth {
+    display: inline-block;
+    width: auto;
+}
+
+.curvedTopCorners {
+    border-radius: 5px 5px 0px 0px;
+}
+
+.pad4 {
+    padding: 2px 5px 2px 5px;
+}
+
+.icon-interactive {
+    color: #AB71C3;
+    font-weight: 100;
+}
+
+.greyBack1 {
+    background-color: #f9eaff;
+}
+
+#weatherBox {
+    width: 200px;
+}
+
+.smallDim {
+    font-size: 10px;
+    color: #8f8f8f;
+}
+
+.commListItem {
+    background-color: #fff;
+    padding: 5px;
+    font-size: 12px;
+    margin: 5px;
+    font-weight: bold;
+    color: #676767;
+}
+
+.addyListItem {
+    background-color: #fff;
+    padding: 5px;
+    font-size: 12px;
+    margin: 5px;
+    font-weight: 100;
+    color: #676767;
+}
+
+.smallDimCircle {
+    font-size: 14px;
+    color: #8f8f8f;
+    border: solid 1px #8f8f8f;
+    border-radius: 50%;
+    padding: 2px 5px 2px 5px;
+}
+
+.marg5 {
+    margin: 5px;
+}

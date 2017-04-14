@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    ViewBag.Title = "Login";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@section Scripts{
+    <script src="~/Scripts/login.js"></script>
+}
+
+<form action="/account/login" method="post" id="frmLogin">
+    <input type="text" id="txtUsername" name="uid" /><br/>
+    <input type="password" id="txtPassword" name="pwd" />
+    <input type="submit" />
+</form>

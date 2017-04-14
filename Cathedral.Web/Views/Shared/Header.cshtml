@@ -1,0 +1,31 @@
+﻿@model Cathedral.Web.Models.SessionUser
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="~/home/" class="navbar-brand">Cathedral Office</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="~/search/"><span class="glyphicon glyphicon-search"></span></a></li>
+                <li><a href="~/notifications/"><span class="glyphicon glyphicon-bell"></span></a></li>
+                <li><a href="~/messages/"><span class="glyphicon glyphicon-envelope"></span></a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <span class="glyphicon glyphicon-user"></span>&nbsp;@string.Format("{0} {1}", Model.FirstName, Model.LastName)
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="~/account/profile"><span class="glyphicon glyphicon-user"></span>&nbsp;My Profile</a></li>
+                        <li><a href="~/account/settings"><span class="glyphicon glyphicon-cog"></span>&nbsp;Settings</a></li>
+                        <li><a href="~/account/login?logout=1"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Log Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

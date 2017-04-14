@@ -1,0 +1,26 @@
+﻿@model Cathedral.Web.Models.SessionUser
+<table class="header2Table" style="height:100%;">
+    <tr>
+        <td style="width:99%;padding-left:15px;" class="vBottom">
+            <h3 class="head2">@String.Format("Good Morning, {0}", Model.FirstName) <span class="roleText">(@Model.Role.Name)</span></h3>
+            <div class="lightPink floatAutoWidth curvedTopCorners pad4">@DateTime.Now.ToLongDateString()</div>&nbsp;<div class="lightPink floatAutoWidth curvedTopCorners pad4">@DateTime.Now.ToShortTimeString()</div>
+        </td>
+        <td style="width:1%;padding:5px;font-size:20px;height:100%;" class="lightPink vTop">
+            <div id="weatherBox" style="height:100%;">
+                <table style="width:100%;height:100%;">
+                    <tr>
+                        <td style="width:50%;" class="vTop">
+                            <div id="weather" style="font-size:12px;"></div>
+                            <div id="city" style="font-size:12px;"></div>
+                        </td>
+                        <td style="width:50%;">
+                            <div id="temp" style="font-size:20px;"></div>
+                            <div><span style="font-size:12px;">W:</span> <span id="wind" style="font-size:12px;"></span></div>
+                            <div><span style="font-size:12px;">H:</span> <span id="humid" style="font-size:12px;"></span></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
